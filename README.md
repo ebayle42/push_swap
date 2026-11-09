@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by ebayle | bcaresme.*
+*This project has been created as part of the 42 curriculum by ebayle | trmorand.*
 
 # get_next_line
 
