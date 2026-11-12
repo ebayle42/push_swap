@@ -65,7 +65,7 @@ int	push_swap(char **argv, int argc)
 	check2(count);
 	return(count);
 }
-//Pour le moment ca retourn le total d arg (ex : 14 = --simple --bench)
+//Pour le moment ca return le total d arg (ex : 14 = --simple --bench)
 #include <stdio.h>
 int main(int argc, char **argv)
 {
