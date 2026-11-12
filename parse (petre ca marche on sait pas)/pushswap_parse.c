@@ -19,11 +19,17 @@ static int	check(char **argv, int i, int cc)
 	int	count;
 	
 	count = 0;
-	if (ft_strcmp(argv[cc], "Test") == 0)
-		return (count = ft);
-	if (ft_strcmp(argv[cc], "Test2") == 0)
-		
-	return (-2);
+	if (ft_strcmp(argv[cc], "adaptive") == 0)
+		count =// l'algo associer
+	if (ft_strcmp(argv[cc], "complex") == 0)
+		count =	//l'algo associer
+	if (ft_strcmp(argv[cc], "medium") == 0)
+		count = //l'algo associer
+	if (ft_strcmp(argv[cc], "simple") == 0)
+		count =	//l'algo associer
+	if (ft_strcmp(argv[cc], "bench") == 0)
+		count = //l'algo associer 
+	return (count);
 }
 int	push_swap(char **argv, int argc)
 {
