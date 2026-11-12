@@ -4,8 +4,11 @@
 static int	check2(int count)
 {
 	if (count == 1)
+		//algo
 	if (count == 2)
+		//algo 
 	if (count == 3)
+		//algo
 	if (count == 4)
 	
 }
@@ -62,7 +65,7 @@ int	push_swap(char **argv, int argc)
 	check2(count);
 	return(count);
 }
-
+//Pour le moment ca retourn le total d arg (ex : 14 = --simple --bench)
 #include <stdio.h>
 int main(int argc, char **argv)
 {
