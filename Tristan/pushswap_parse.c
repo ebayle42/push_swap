@@ -18,11 +18,11 @@ static int flag_cmp(char *argv, char *cmp)
 static int	check_flag(char *argv, int *count)
 {
 	if (flag_cmp(argv, "adaptive") == 0)
-		*count = *count  / 10 * 10 + 1;
+		*count = *count / 10 * 10 + 1;
 	else if (flag_cmp(argv, "complex") == 0)
-		*count = *count  / 10 * 10 + 2;
+		*count = *count / 10 * 10 + 2;
 	else if (flag_cmp(argv, "medium") == 0)
-		*count = *count / 10 * 10;
+		*count = *count / 10 * 10 + 3;
 	else if (flag_cmp(argv, "simple") == 0)
 		*count = *count / 10 * 10 + 4;
 	else if (flag_cmp(argv, "bench") == 0)
@@ -57,7 +57,9 @@ int	main(int argc, char **argv)
 	int	mode;
 
 	mode = push_swap(argv, argc, &first);
-	//faudrait une "liste" pour stocker tout ce qu on fait ex : ra -> +1 dans la liste ou un truc commeca qu on puisse savoir combien d'operation il y a
+	if (mode == 0)
+		return (0);
+	//faudrait une "liste" pour stocker tout ce qu on fait ex : sa -> +1 dans la liste ou un truc commeca qu on puisse savoir combien d'operation il y a
 	//check_algo(mode, &a, &b, ..);
 	printf("mode=%d first=%d\n", mode, first);
 	return (0);

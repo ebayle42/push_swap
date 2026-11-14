@@ -1,12 +1,12 @@
-static void	run_aglo(int mode, //stack *a, stack *b, ..)
+static void	run_algo(int mode, //stack *a, stack *b, ..)
 {
-	if (count == 1)
+	if (mode == 1)
 		adaptive_sort(a, b,  );
-	if (count == 2)
+	else if (mode == 2)
 		complex_sort(a, b,  );
-	if (count == 3)
+	else if (mode == 3)
 		medium_sort(a, b,  );
-	if (count == 4)
+	else if (mode == 4)
 		simple_sort(a, b,  );
 }
 
