@@ -1,3 +1,4 @@
+#include "push_swap.h"
 
 static int flag_cmp(char *argv, char *cmp)
 {
@@ -49,21 +50,7 @@ int	push_swap(char **argv, int argc, int *first)
 		return (0);
 	return (count);
 }
-#include <stdio.h>
 
-int	main(int argc, char **argv)
-{
-	int	first;
-	int	mode;
-
-	mode = push_swap(argv, argc, &first);
-	if (mode == 0)
-		return (0);
-	//faudrait une "liste" pour stocker tout ce qu on fait ex : sa -> +1 dans la liste ou un truc commeca qu on puisse savoir combien d'operation il y a
-	//check_algo(mode, &a, &b, ..);
-	printf("mode=%d first=%d\n", mode, first);
-	return (0);
-}
 //
 //	 /\___/\
 //	(  * .* )
