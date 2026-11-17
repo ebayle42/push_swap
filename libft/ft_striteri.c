@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/14 23:32:25 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/14 23:34:37 by ebayle           ###   ########.fr       */
+/*   Created: 2026/10/22 21:13:11 by ebayle            #+#    #+#             */
+/*   Updated: 2026/10/26 16:46:43 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static int	if_same(const char *a, const char *b)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	while (*a && *a == *b)
+	unsigned int	i;
+
+	i = 0;
+	if (f == 0 || s == 0)
+		return ;
+	while (s[i] != '\0')
 	{
-		a++;
-		b++;
+		f(i, &s[i]);
+		i++;
 	}
-	return (*a == *b);
-}
-
-t_algo	algo(const char *s)
-{
-	if (if_same(s, "--minmax"))
-		return (min_max);
-	if (if_same(s, "--range"))
-		return (range);
-	if (if_same(s, "--quick"))
-		return (quick);
-	if (if_same(s, "--adaptive"))
-		return (adaptive);
-	return (NULL);
 }
