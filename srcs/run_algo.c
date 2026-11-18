@@ -14,7 +14,7 @@
 
 static void	run_algo(int mode, t_ps *ps, double disorder)
 {
-	if (ps->a.size <= 5 || mode == 4 || (mode == 1 && disorder > 0.95))
+	if (ps->a.size <= 5 || mode == 4 || (mode == 1 && disorder < 0.2))
 		minmax_sort(ps);
 	else if (mode == 3 || (mode == 1 && disorder < 0.5))
 		range_sort(ps);

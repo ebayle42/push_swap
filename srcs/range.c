@@ -12,6 +12,16 @@
 
 #include "push_swap.h"
 
+static int	isqrt(int n)
+{
+	int	r;
+
+	r = 0;
+	while ((r + 1) * (r + 1) <= n)
+		r++;
+	return (r);
+}
+
 static void	range_step(t_ps *ps, int *i, int range)
 {
 	int	x;
@@ -27,15 +37,14 @@ static void	range_step(t_ps *ps, int *i, int range)
 	else
 		ra(ps);
 }
+
 void	range_sort(t_ps *ps)
 {
 	int	i;
 	int	range;
 
 	i = 0;
-	range = 15;
-	if (ps->a.size > 100)
-		range = 30;
+	range = isqrt(2 * ps->a.size);
 	while (ps->a.size > 0)
 		range_step(ps, &i, range);
 	push_back_max(ps);

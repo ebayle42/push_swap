@@ -9,7 +9,7 @@
 - [x] Les erreurs détectées : non-entier, `""`, `+`, `-`, dépassement d'`int`, doublons, flag inconnu ou placé après les nombres
 - [x] Le passage des valeurs en index : `to_rank` (`srcs/parse_num.c`)
 - [x] Les algos : `minmax_sort` (`--simple`), `range_sort` (`--medium`), `quick_sort` (`--complex`)
-- [x] L'adaptatif dans `check_algo` (`srcs/run_algo.c`) : `minmax_sort` si disorder > 0,95, `range_sort` si < 0,5, sinon `quick_sort`
+- [x] L'adaptatif dans `check_algo` (`srcs/run_algo.c`) : `minmax_sort` si disorder < 0,2, `range_sort` si < 0,5, sinon `quick_sort` (seuils du sujet)
 - [x] Les utilitaires : `srcs/utils.c` et `srcs/utils_second.c` (`is_sorted`, `pos_of_min`, `pos_of_max`, `cost`, `top_a`, `sort_three`, `push_back_max`)
 - [x] `compute_disorder` (`srcs/disorder.c`)
 - [x] Les petits cas : jusqu'à 5 éléments, `minmax_sort` est utilisé quel que soit le flag (3 éléments : 2 coups max, 5 éléments : 10 coups max mesurés)
@@ -77,7 +77,7 @@ valgrind --leak-check=full ./push_swap             # sans argument
 
 Résultat de `norminette main.c push_swap.h srcs/` au 18/11 :
 - [ ] **`min_max.c`** : ajouter une ligne vide avant les fonctions des lignes 36 et 50.
-- [ ] **`range.c`** : ajouter une ligne vide avant la fonction de la ligne 30.
+- [x] **`range.c`** : ajouter une ligne vide avant la fonction de la ligne 30.
 - [ ] **`parse_num.c`** : double espace ligne 102 (`while (i <  n)`).
 - [ ] **`pushswap_parse.c`** :
   - ligne 15 : tabulation au lieu d'espace avant le nom de `flag_cmp` ;
@@ -96,9 +96,9 @@ Le README actuel est encore celui de get_next_line et doit être entièrement r�
 - [ ] **Instructions :** compiler (`make`), lancer, la liste des flags, et un exemple avec `checker_linux`.
 - [ ] **Algorithms**, une explication détaillée pour chacun :
   - **simple (min/max) :** pourquoi il est en O(n²) ;
-  - **medium (range / chunks) :** pourquoi il est en O(n√n), et le choix de la taille des plages ;
+  - **medium (range / chunks) :** pourquoi il est en O(n√n), et la taille des plages vaut `isqrt(2n)` ≈ 1,4·√n ;
   - **complex (quicksort sur 2 piles) :** pourquoi il est en O(n log n) ;
-  - **adaptive :** pourquoi les seuils 0,5 et 0,95, la technique utilisée dans chaque régime, et les bornes en temps et en mémoire.
+  - **adaptive :** pourquoi les seuils 0,2 et 0,5 (imposés par le sujet), la technique utilisée dans chaque régime, et les bornes en temps et en mémoire.
 - [ ] **La métrique de désordre :** sa définition (proportion de paires inversées) et la façon de la calculer.
 - [ ] **Contributions :** qui a fait quoi, par exemple les opérations et les algos pour Enzo, le parsing, les flags et le dispatch pour Tristan.
 - [ ] **Resources :** les références, et **comment l'IA a été utilisée** (pour quelles tâches et sur quelles parties).
