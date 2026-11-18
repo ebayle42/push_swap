@@ -14,18 +14,12 @@
 
 static void	run_algo(int mode, t_ps *ps, double disorder)
 {
-	if (mode == 1 && disorder < 0.2)
+	if (ps->a.size <= 5 || mode == 4 || (mode == 1 && disorder > 0.95))
 		minmax_sort(ps);
-	else if (mode == 1 && disorder < 0.5)
+	else if (mode == 3 || (mode == 1 && disorder < 0.5))
 		range_sort(ps);
-	else if (mode == 1)
+	else
 		quick_sort(ps);
-	else if (mode == 2)
-		quick_sort(ps);
-	else if (mode == 3)
-		range_sort(ps);
-	else if (mode == 4)
-		minmax_sort(ps);
 }
 
 void	check_algo(int mode, t_ps *ps, double disorder)

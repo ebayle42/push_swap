@@ -34,6 +34,7 @@ static int	part_a(t_ps *ps, int pivot, int small)
 	}
 	return (rot);
 }
+
 static int	part_b(t_ps *ps, int pivot, int big)
 {
 	int	moved;
@@ -65,10 +66,9 @@ void	qs_a(t_ps *ps, int n, int lo, t_pivot pick)
 
 	if (n <= 1)
 		return ;
-	if (n == 2)
+	if (n <= 3)
 	{
-		if (ps->a.v[0] > ps->a.v[1])
-			sa(ps);
+		sort_small_a(ps, n);
 		return ;
 	}
 	pivot = pick(lo, n);
@@ -88,12 +88,9 @@ void	qs_b(t_ps *ps, int n, int lo, t_pivot pick)
 
 	if (n == 0)
 		return ;
-	if (n <= 2)
+	if (n <= 3)
 	{
-		if (n == 2 && ps->b.v[0] < ps->b.v[1])
-			sb(ps);
-		while (n-- > 0)
-			pa(ps);
+		push_small_b(ps, n);
 		return ;
 	}
 	pivot = pick(lo, n);

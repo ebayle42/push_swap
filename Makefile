@@ -14,6 +14,9 @@ SRCS		= main.c \
 			  Enzo/ops_base_push.c \
 			  Enzo/ops_rotate.c \
 			  Enzo/ops_rrr.c \
+			  Enzo/utils.c \
+			  Enzo/utils_second.c \
+			  Enzo/disorder.c \
 			  Enzo/min_max.c \
 			  Enzo/range.c \
 			  Enzo/quick_entry.c \

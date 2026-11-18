@@ -72,6 +72,8 @@ void	range_sort(t_ps *ps);
 void	quick_sort(t_ps *ps);
 void	qs_a(t_ps *ps, int n, int lo, t_pivot pick);
 void	qs_b(t_ps *ps, int n, int lo, t_pivot pick);
+void	sort_small_a(t_ps *ps, int n);
+void	push_small_b(t_ps *ps, int n);
 
 /* disorder et bench (a ecrire) */
 double	compute_disorder(t_stack *a);
