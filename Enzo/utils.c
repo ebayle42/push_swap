@@ -6,43 +6,57 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 12:22:18 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/18 14:19:43 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/18 16:07:46 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 int	is_sorted(t_stack *s)
 {
-	if (s ->v [0] < s -> v[ft_lstsize(s) - 1])
-		return (1);
+	int	i;
+
+	i = 0;
+	while (i < s -> size - 1)
+	{
+		if (s -> v[0] < s -> v[i])
+			return (1);
+		i++;
+	}
 	return (0);
 }
 int pos_of_min(t_stack *s)
 {
 	int	i;
-	int	min;
+	int	pos;
 
 	i = 0;
-	min = 0;
-	while (s)
+	pos = 1;
+	while (i < s -> size)
 	{
-		if (s -> v[i] > s -> v[i])
-		{
-			min = s -> v[i];
-		}
+		if (s -> v[i] < s -> v[pos])
+			pos = i;
 		i++;
 	}
-	return (min);
+	return (pos);
 }
-int pos_of_min(t_stack *s)
+int pos_of_max(t_stack *s)
 {
+	int	i;
+	int	pos;
 
+	i = 0;
+	pos = 1;
+	while (i < s -> size)
+	{
+		if (s -> v[i] > s -> v[pos])
+			pos = i;
+		i++;
+	}
+	return (pos);
 }
-int cost(t_stack *s)
+int cost(int pos, int size)
 {
-
-}
-void top_a(t_ps *ps, int pos)
-{
-
+	if (cost <= pos - size)
+		return (cost);
+	return (size - pos );
 }
