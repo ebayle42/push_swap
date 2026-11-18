@@ -10,20 +10,20 @@ FTPRINTF	= $(FT_DIR)/libftprintf.a
 HEADER		= push_swap.h
 
 SRCS		= main.c \
-			  Enzo/ops_base.c \
-			  Enzo/ops_base_push.c \
-			  Enzo/ops_rotate.c \
-			  Enzo/ops_rrr.c \
-			  Enzo/utils.c \
-			  Enzo/utils_second.c \
-			  Enzo/disorder.c \
-			  Enzo/min_max.c \
-			  Enzo/range.c \
-			  Enzo/quick_entry.c \
-			  Enzo/quick_sort.c \
-			  Tristan/parse_num.c \
-			  Tristan/pushswap_parse.c \
-			  Tristan/run_algo.c
+			  srcs/ops_base.c \
+			  srcs/ops_base_push.c \
+			  srcs/ops_rotate.c \
+			  srcs/ops_rrr.c \
+			  srcs/utils.c \
+			  srcs/utils_second.c \
+			  srcs/disorder.c \
+			  srcs/min_max.c \
+			  srcs/range.c \
+			  srcs/quick_entry.c \
+			  srcs/quick_sort.c \
+			  srcs/parse_num.c \
+			  srcs/pushswap_parse.c \
+			  srcs/run_algo.c
 
 OBJ_DIR		= obj
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

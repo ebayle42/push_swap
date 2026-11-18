@@ -33,12 +33,12 @@ typedef struct s_ps
 
 typedef int	(*t_pivot)(int lo, int n);
 
-/* parsing (Tristan/pushswap_parse.c, Tristan/parse_num.c) */
+/* parsing (srcs/pushswap_parse.c, srcs/parse_num.c) */
 int		push_swap(char **argv, int argc, int *first);
 int		fill(t_ps *ps, char **argv, int first, int n);
 void	to_rank(t_ps *ps, int n);
 
-/* operations (Enzo/ops_*.c) */
+/* operations (srcs/ops_*.c) */
 void	put_op(t_ps *ps, const char *s);
 void	swap(t_stack *s);
 void	push(t_stack *dst, t_stack *src);
