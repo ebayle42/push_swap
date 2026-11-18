@@ -1,6 +1,6 @@
 # push_swap : ce qu'il reste à faire (partie obligatoire)
 
-État au 18/11/2026. Les cases cochées sont faites.
+État au 18/11/2026 (soir). Les cases cochées sont faites.
 
 ## Déjà fait
 
@@ -22,39 +22,15 @@
 
 ## 1. Obtenir un `make` qui passe
 
-### 1.1 Corriger le commentaire du chat
-- **Fichier :** `srcs/pushswap_parse.c`, ligne 69 (et suivantes).
-- **Problème :** la ligne `//	/ > 💙 <\` se termine par `\`. En C, ça prolonge le commentaire sur la ligne suivante, et avec `-Werror` ça donne l'erreur `commentaire multi-lignes`.
-- **Correction :** supprimer le dessin, ou retirer le `\` en fin de ligne.
-
-### 1.2 Ajouter un compteur par opération (pour `--bench`)
-- **Dans `t_ps`**, ajouter `int cnt[11];`, dans l'ordre `sa sb ss pa pb ra rb rr rra rrb rrr`.
-- **L'initialiser à 0** dans `init_stacks` (`main.c`), par exemple avec `ft_bzero(ps->cnt, sizeof(ps->cnt))`.
-- **Compter chaque opération :** changer `put_op(t_ps *ps, const char *s)` en `put_op(t_ps *ps, const char *s, int id)`, qui fait `ps->cnt[id]++`. Chaque fonction d'opération passe son indice (`sa` → 0, …, `rrr` → 10).
-
-### 1.3 Écrire `print_bench` (nouveau fichier, par exemple `srcs/bench.c`)
-Elle est déjà déclarée dans `push_swap.h` et appelée dans `main.c`, mais n'existe pas encore : c'est ce qui bloque l'édition de liens.
-- **Prototype :** `void print_bench(t_ps *ps, int mode, double disorder);`
-- **Tout s'écrit sur stderr (fd 2)**, avec `ft_putstr_fd` et `ft_putnbr_fd` (`ft_printf` écrit sur stdout).
-- **À afficher**, dans le format de l'exemple du sujet :
-  1. **Le désordre** en pourcentage avec 2 décimales, par exemple `49.93%`. On calcule `x = (int)(disorder * 10000 + 0.5)`, puis on affiche `x / 100`, un `.`, et `x % 100` **sur 2 chiffres** (`5.07`, pas `5.7`).
-  2. **La stratégie et sa complexité**, d'après `mode % 10` :
-
-     | Mode | Affichage |
-     |---|---|
-     | 1 (adaptive) | `Adaptive / ` + la complexité de l'algo choisi selon `disorder` (mêmes seuils que `run_algo`) |
-     | 2 (complex) | `Complex / O(n log n)` |
-     | 3 (medium) | `Medium / O(n√n)` |
-     | 4 (simple) | `Simple / O(n²)` |
-
-  3. **Le total** des opérations (`ps->ops`).
-  4. **Le nombre de chaque opération** : `sa sb ss pa pb ra rb rr rra rrb rrr`.
-- Les opérations restent sur stdout : `./push_swap --bench $ARG 2>bench.txt | ./checker_linux $ARG` doit marcher.
-
-### 1.4 Mettre à jour le Makefile
-- Ajouter `srcs/bench.c` dans `SRCS`.
-- Lancer `make` deux fois : la seconde fois, **rien ne doit être recompilé** (pas de relink).
-- Vérifier `make clean`, `make fclean` et `make re`.
+- [x] **Commentaire du chat corrigé** (`srcs/pushswap_parse.c`) : il est passé en `/* */`, il ne bloque plus la compilation.
+- [ ] **Pousser `--bench`.** C'est écrit et testé en local par Enzo, mais pas encore commité. Tant que ce n'est pas poussé, le dépôt ne compile pas : `main.c` appelle `print_bench`, qui n'existe pas encore sur le dépôt. Ce qui a été fait :
+  - `srcs/bench.c` : `print_bench` affiche sur stderr le désordre, la stratégie, le total et le nombre de chaque opération ;
+  - `int cnt[11]` ajouté dans `t_ps`, mis à 0 dans `init_stacks` (`main.c`) ;
+  - `put_op(ps, s, id)` prend un 3ᵉ paramètre (`sa` = 0, …, `rrr` = 10) et incrémente `ps->cnt[id]` ;
+  - `srcs/bench.c` ajouté au Makefile.
+- [ ] **Vérifier le format de `--bench`** : il est écrit de mémoire, il faut le comparer à l'exemple du sujet.
+- [ ] **Garder les seuils de l'adaptatif identiques** dans `srcs/run_algo.c` et `srcs/bench.c` : si on les change dans l'un, il faut les changer dans l'autre.
+- [ ] **Vérifier le Makefile** : `make` deux fois sans relink (déjà OK en local), puis `make clean`, `make fclean` et `make re`.
 
 ---
 
@@ -62,7 +38,7 @@ Elle est déjà déclarée dans `push_swap.h` et appelée dans `main.c`, mais n'
 
 Le `checker_linux` du sujet se place à la racine du repo, **sans le commit**.
 
-### 2.1 Résultats mesurés le 18/11 (copie avec le commentaire corrigé, 30 tirages)
+### 2.1 Résultats mesurés le 18/11 (30 tirages)
 
 | Test | Coups max | Moyenne | Tri correct |
 |---|---|---|---|
@@ -77,7 +53,7 @@ Le `checker_linux` du sujet se place à la racine du repo, **sans le commit**.
 
 Seuils du sujet : 100 → < 700 excellent, 500 → < 5500 excellent.
 - [ ] **100 nombres en mode par défaut** : on dépasse parfois 700 (max 729). Piste : régler les pivots de `quick_sort`, ou passer à `range_sort` sur une plus grande plage de désordre (`--medium` fait ~580 sur 100).
-- [ ] **Refaire la mesure** avec `checker_linux` une fois le `make` réparé, sur des entrées presque triées et triées à l'envers, pour chaque flag.
+- [ ] **Refaire la mesure** avec `checker_linux` (par exemple `./push_swap --bench $ARG 2>bench.txt | ./checker_linux $ARG`), sur des entrées presque triées et triées à l'envers, pour chaque flag.
 
 ### 2.2 Gestion d'erreurs
 Déjà OK sur : `one`, `""`, `1 2 2`, `2147483648`, `+ 1`, `1 --simple`, `--foo 1 2`.
@@ -108,7 +84,7 @@ Résultat de `norminette main.c push_swap.h srcs/` au 18/11 :
   - ligne 17 : tabulation au lieu d'espace dans `int i;` ;
   - ligne 42 : double espace (`*count  % 10`) ;
   - ligne 47 : ligne vide avant la fonction.
-- [ ] **Relancer `norminette *.c *.h srcs/ libft/ ft_printf/`** après l'ajout de `bench.c` : il faut 0 erreur. Une seule erreur donne 0.
+- [ ] **Relancer `norminette *.c *.h srcs/ libft/ ft_printf/`** : il faut 0 erreur (`bench.c` et les fichiers d'opérations modifiés passent déjà). Une seule erreur donne 0.
 
 ---
 
