@@ -35,6 +35,17 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(FTPRINTF) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(FTPRINTF) $(LIBFT) -o $(NAME)
+	@printf '%s\n' \
+		'     /\___/\' \
+		'    (  * .* )' \
+		'    / > 💙 <\' \
+		' /_   _   _\' \
+		' | |_| |_| |_' \
+		' ------------' \
+		' | We Enjoy |' \
+		' |    𝟒𝟐    |' \
+		' |    𝟒𝟐    |' \
+		' |__________|'
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
