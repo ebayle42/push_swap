@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:40 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/18 12:22:21 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/19 19:33:52 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	extract_one(t_ps *ps, int *nmax)
 		(*nmax)++;
 	}
 }
+
 static void	minmax_rebuild(t_ps *ps, int nmax)
 {
 	while (nmax-- > 0)
@@ -47,6 +48,7 @@ static void	minmax_rebuild(t_ps *ps, int nmax)
 		pa(ps);
 	}
 }
+
 void	minmax_sort(t_ps *ps)
 {
 	int	nmax;

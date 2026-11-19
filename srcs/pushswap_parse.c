@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap_parse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trmorand <trmorand@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 14:13:50 by trmorand          #+#    #+#             */
-/*   Updated: 2026/11/18 14:13:51 by trmorand         ###   ########.fr       */
+/*   Updated: 2026/11/19 19:35:59 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int flag_cmp(char *argv, char *cmp)
+static int	flag_cmp(char *argv, char *cmp)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (cmp[i])
@@ -39,11 +39,12 @@ static int	check_flag(char *argv, int *count)
 	else if (flag_cmp(argv, "simple") == 0)
 		*count = *count / 10 * 10 + 4;
 	else if (flag_cmp(argv, "bench") == 0)
-		*count = *count  % 10 + 10;
+		*count = *count % 10 + 10;
 	else
 		return (-1);
 	return (0);
 }
+
 int	push_swap(char **argv, int argc, int *first)
 {
 	int	cc;
