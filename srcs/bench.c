@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 04:33:25 by trmorand          #+#    #+#             */
-/*   Updated: 2026/11/19 19:16:17 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/19 19:30:55 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static const char	*run_bench(int mode, t_ps *ps, double disorder)
 	if (mode == 4 || (mode == 1 && (ps->a.size <= 5 || disorder < 0.2)))
 		return ("Simple : O(n^2)");
 	else if (mode == 3 || (mode == 1 && disorder < 0.5))
-		return ("Medium : O(n sqrt(n))");
+		return ("Medium : O(n√n)");
 	else
 		return ("Complex : O(n log n)");
 }
