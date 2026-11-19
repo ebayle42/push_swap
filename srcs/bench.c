@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trmorand <trmorand@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 04:33:25 by trmorand          #+#    #+#             */
-/*   Updated: 2026/11/19 17:23:25 by trmorand         ###   ########.fr       */
+/*   Updated: 2026/11/19 17:58:09 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static const char	*run_bench(int mode, t_ps *ps, double disorder)
 {
-	if (mode == 4 || (mode == 1 && (ps->a.size <= 5 || disorder < 0.2)))
+	if (mode == 4 || (mode == 1 && ps->a.size <= 5))
 		return ("Simple : O(n^2)");
 	else if (mode == 3 || (mode == 1 && disorder < 0.5))
 		return ("Medium : O(n sqrt(n))");
