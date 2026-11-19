@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trmorand <trmorand@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:10 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/19 04:57:35 by trmorand         ###   ########.fr       */
+/*   Updated: 2026/11/19 17:56:37 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,9 @@ typedef struct s_ps
 
 typedef int	(*t_pivot)(int lo, int n);
 
-/* parsing (srcs/pushswap_parse.c, srcs/parse_num.c) */
 int		push_swap(char **argv, int argc, int *first);
 int		fill(t_ps *ps, char **argv, int first, int n);
 void	to_rank(t_ps *ps, int n);
-
-/* operations (srcs/ops_*.c) */
 void	put_op(t_ps *ps, const char *s, int id);
 void	swap(t_stack *s);
 void	push(t_stack *dst, t_stack *src);
@@ -56,8 +53,6 @@ void	rr(t_ps *ps);
 void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	rrr(t_ps *ps);
-
-/* utils (a ecrire) */
 int		is_sorted(t_stack *s);
 int		pos_of_min(t_stack *s);
 int		pos_of_max(t_stack *s);
@@ -65,8 +60,6 @@ int		cost(int pos, int size);
 void	top_a(t_ps *ps, int pos);
 void	sort_three(t_ps *ps);
 void	push_back_max(t_ps *ps);
-
-/* algos */
 void	check_algo(int mode, t_ps *ps, double disorder);
 void	minmax_sort(t_ps *ps);
 void	range_sort(t_ps *ps);
@@ -75,8 +68,6 @@ void	qs_a(t_ps *ps, int n, int lo, t_pivot pick);
 void	qs_b(t_ps *ps, int n, int lo, t_pivot pick);
 void	sort_small_a(t_ps *ps, int n);
 void	push_small_b(t_ps *ps, int n);
-
-/* disorder et bench (a ecrire) */
 double	compute_disorder(t_stack *a);
 void	print_bench(t_ps *ps, int mode, double disorder);
 #endif
