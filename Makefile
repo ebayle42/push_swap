@@ -27,6 +27,7 @@ SRCS		= main.c \
 			  srcs/parse_num.c \
 			  srcs/pushswap_parse.c \
 			  srcs/run_algo.c
+			  srcs/bench.c
 
 OBJ_DIR		= obj
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

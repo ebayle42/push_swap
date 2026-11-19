@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_rrr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
+/*   By: trmorand <trmorand@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:28 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/17 20:05:29 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/19 04:20:02 by trmorand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	rrr(t_ps *ps)
 {
 	rrotate(&ps->a);
 	rrotate(&ps->b);
-	put_op(ps, "rrr");
+	put_op(ps, "rrr", 10);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trmorand <trmorand@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: trmorand <trmorand@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 14:14:00 by trmorand          #+#    #+#             */
-/*   Updated: 2026/11/18 14:14:01 by trmorand         ###   ########.fr       */
+/*   Updated: 2026/11/19 04:32:10 by trmorand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

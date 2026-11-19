@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
+/*   By: trmorand <trmorand@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:15 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/17 20:05:15 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/19 04:24:12 by trmorand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ static int	ps_error(t_ps *ps)
 
 static int	init_stacks(t_ps *ps, int n)
 {
+	int	i;
+
+	i = 0;
 	ps->a.v = malloc(sizeof(int) * n);
 	ps->b.v = malloc(sizeof(int) * n);
 	ps->a.size = n;
@@ -29,6 +32,11 @@ static int	init_stacks(t_ps *ps, int n)
 	ps->ops = 0;
 	if (!ps->a.v || !ps->b.v)
 		return (-1);
+	while (i < 11)
+	{
+		ps->cnt[i] = 0;
+		i++;
+	}
 	return (0);
 }
 

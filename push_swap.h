@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
+/*   By: trmorand <trmorand@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:10 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/17 20:05:10 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/19 04:57:35 by trmorand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_ps
 	t_stack	a;
 	t_stack	b;
 	int		ops;
+	int		cnt[11];
 }	t_ps;
 
 typedef int	(*t_pivot)(int lo, int n);
@@ -39,7 +40,7 @@ int		fill(t_ps *ps, char **argv, int first, int n);
 void	to_rank(t_ps *ps, int n);
 
 /* operations (srcs/ops_*.c) */
-void	put_op(t_ps *ps, const char *s);
+void	put_op(t_ps *ps, const char *s, int id);
 void	swap(t_stack *s);
 void	push(t_stack *dst, t_stack *src);
 void	rotate(t_stack *s);
@@ -78,5 +79,4 @@ void	push_small_b(t_ps *ps, int n);
 /* disorder et bench (a ecrire) */
 double	compute_disorder(t_stack *a);
 void	print_bench(t_ps *ps, int mode, double disorder);
-
 #endif

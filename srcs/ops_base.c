@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ops_base.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
+/*   By: trmorand <trmorand@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:33 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/17 20:05:34 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/19 04:26:51 by trmorand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	put_op(t_ps *ps, const char *s)
+void	put_op(t_ps *ps, const char *s, int id)
 {
 	int	len;
 
@@ -22,6 +22,7 @@ void	put_op(t_ps *ps, const char *s)
 	write(1, s, len);
 	write(1, "\n", 1);
 	ps->ops++;
+	ps->cnt[id]++;
 }
 
 void	swap(t_stack *s)
