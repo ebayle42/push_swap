@@ -26,7 +26,7 @@ SRCS		= main.c \
 			  srcs/quick_sort.c \
 			  srcs/parse_num.c \
 			  srcs/pushswap_parse.c \
-			  srcs/run_algo.c
+			  srcs/run_algo.c \
 			  srcs/bench.c
 
 OBJ_DIR		= obj
