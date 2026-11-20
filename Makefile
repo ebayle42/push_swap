@@ -1,6 +1,6 @@
 NAME		= push_swap
 
-CC		= cc
+CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 INCS		= -I.
 
@@ -26,7 +26,7 @@ SRCS		= main.c \
 			  ft_split.c \
 			  ft_putstr_fd.c \
 			  ft_putnbr_fd.c \
-			  ft_putchar_fd.c \
+			  ft_putchar_fd.c
 
 OBJ_DIR		= obj
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -47,17 +47,15 @@ $(NAME): $(OBJS)
 		' |    𝟒𝟐    |' \
 		' |__________|'
 
-$(LIBFT):
-	$(MAKE) -C
-
 $(OBJ_DIR)/%.o: %.c $(HEADER)
-	@mkdir -p $(dir $@)
+	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
-clean: rm -rf $(OBJ_DIR)
+clean:
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
