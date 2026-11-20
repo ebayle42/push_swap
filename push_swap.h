@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:10 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/20 18:28:53 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/20 18:36:06 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include "ft_printf.h"
+# include "libft.h"
 
 typedef struct s_stack
 {
