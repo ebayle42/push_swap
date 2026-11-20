@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trmorand <trmorand@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:15 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/19 04:24:12 by trmorand         ###   ########.fr       */
+/*   Updated: 2026/11/20 17:34:39 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,25 @@ int	main(int argc, char **argv)
 	t_ps	ps;
 	int		mode;
 	int		first;
-	double	disorder;
+	int		n;
+	char	**args;
 
 	mode = push_swap(argv, argc, &first);
 	if (mode == 0)
 		return (0);
-	if (init_stacks(&ps, argc - first) == -1
-		|| fill(&ps, argv, first, argc - first) == -1)
+	args = get_args(argv, argc, first, &n);
+	if (!args)
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	if (init_stacks(&ps, n) == -1 || fill(&ps, args, 0, n) == -1)
+	{
+		free_args(args);
 		return (ps_error(&ps));
-	to_rank(&ps, ps.a.size);
-	disorder = compute_disorder(&ps.a);
-	if (disorder > 0)
-		check_algo(mode, &ps, disorder);
-	if (mode >= 10)
-		print_bench(&ps, mode, disorder);
+	}
+	free_args(args);
+	run_sort(&ps, mode);
 	free(ps.a.v);
 	free(ps.b.v);
 	return (0);

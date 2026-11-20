@@ -73,6 +73,9 @@ same but the median of a group and the limits of a range become simple to comput
   median as pivot, groups of three or less are sorted by hand
 - `--adaptive` (default) : chooses depending on the disorder
 
+- if two flags are put like this `--simple --complex` the last one will be executed (here complex will takeover)
+
+- the `--bench` will work wherever it is in the flags `--simple --bench --complex` (here it will be complex and we will se the bench)
 | Disorder | Strategy |
 |---|---|
 | 5 numbers or less, or disorder < 0.2 | simple |
