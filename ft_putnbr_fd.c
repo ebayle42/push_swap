@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 13:37:48 by ebayle            #+#    #+#             */
-/*   Updated: 2026/10/20 14:46:44 by ebayle           ###   ########.fr       */
+/*   Created: 2026/10/23 10:14:14 by ebayle            #+#    #+#             */
+/*   Updated: 2026/11/20 19:07:16 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_bzero(void *str, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	ft_memset(str, '\0', n);
+	long int	nbr;
+
+	nbr = n;
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		ft_putchar_fd('-', fd);
+	}
+	if (nbr >= 0 && nbr <= 9)
+		ft_putchar_fd(nbr + '0', fd);
+	if (nbr >= 10)
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
+	}
 }

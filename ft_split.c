@@ -6,11 +6,11 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 19:00:32 by ebayle            #+#    #+#             */
-/*   Updated: 2026/10/28 15:24:52 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/20 19:06:53 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static int	count_words(char const *str, char sep)
 {

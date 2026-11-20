@@ -1,39 +1,40 @@
 NAME		= push_swap
 
-CC			= cc
+CC		= cc
 CFLAGS		= -Wall -Wextra -Werror
-INCS		= -I. -Ilibft 
-
-LIBFT_DIR	= libft
-LIBFT		= $(LIBFT_DIR)/libft.a
+INCS		= -I.
 
 HEADER		= push_swap.h
 
 SRCS		= main.c \
-			  srcs/ops_base.c \
-			  srcs/ops_base_push.c \
-			  srcs/ops_rotate.c \
-			  srcs/ops_rrr.c \
-			  srcs/utils.c \
-			  srcs/utils_second.c \
-			  srcs/disorder.c \
-			  srcs/min_max.c \
-			  srcs/range.c \
-			  srcs/quick_entry.c \
-			  srcs/quick_sort.c \
-			  srcs/parse_num.c \
-			  srcs/pushswap_parse.c \
-			  srcs/run_algo.c \
-			  srcs/get_args.c \
-			  srcs/bench.c
+			  ops_base.c \
+			  ops_base_push.c \
+			  ops_rotate.c \
+			  ops_rrr.c \
+			  utils.c \
+			  utils_second.c \
+			  disorder.c \
+			  min_max.c \
+			  range.c \
+			  quick_entry.c \
+			  quick_sort.c \
+			  parse_num.c \
+			  pushswap_parse.c \
+			  run_algo.c \
+			  get_args.c \
+			  bench.c \
+			  ft_split.c \
+			  ft_putstr_fd.c \
+			  ft_putnbr_fd.c \
+			  ft_putchar_fd.c \
 
 OBJ_DIR		= obj
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@printf '%s\n' \
 		'   /\___/\' \
 		'  (  * .* )' \
@@ -47,19 +48,16 @@ $(NAME): $(LIBFT) $(OBJS)
 		' |__________|'
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C
 
 $(OBJ_DIR)/%.o: %.c $(HEADER)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
-clean:
-	$(MAKE) -C $(LIBFT_DIR) clean
-	rm -rf $(OBJ_DIR)
+clean: rm -rf $(OBJ_DIR)
 
 fclean: clean
-	$(MAKE) -C $(LIBFT_DIR) fclean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

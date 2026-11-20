@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 14:04:41 by ebayle            #+#    #+#             */
-/*   Updated: 2026/10/28 18:08:01 by ebayle           ###   ########.fr       */
+/*   Created: 2026/10/22 21:03:25 by ebayle            #+#    #+#             */
+/*   Updated: 2026/11/20 19:06:16 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_putchar_fd(char c, int fd)
 {
-	t_list	*tmp;
-
-	if (!lst || !del)
-		return ;
-	while (*lst)
-	{
-		tmp = (*lst)-> next;
-		ft_lstdelone(*lst, del);
-		(*lst) = tmp;
-	}
+	write(fd, &c, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:10 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/20 18:36:06 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/20 19:07:34 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include "libft.h"
 
 typedef struct s_stack
 {
@@ -34,6 +33,10 @@ typedef struct s_ps
 
 typedef int	(*t_pivot)(int lo, int n);
 
+void	ft_putchar_fd(char c, int fd);
+char	**ft_split(char const *s, char c);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
 int		push_swap(char **argv, int argc, int *first);
 int		fill(t_ps *ps, char **argv, int first, int n);
 void	to_rank(t_ps *ps, int n);
