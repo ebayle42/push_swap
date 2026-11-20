@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:15 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/20 17:34:39 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/20 18:26:46 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,18 @@ static int	init_stacks(t_ps *ps, int n)
 	}
 	return (0);
 }
+
+static void run_sort(t_ps *ps, int mode)
+{
+	double	disorder;
+	to_rank(ps, ps -> a.size);
+	disorder = compute_disorder(&ps -> a);
+	if (disorder > 0)
+		check_algo(mode, ps, disorder);
+	if (mode >= 10)
+		print_bench(ps, mode, disorder);
+}
+
 
 int	main(int argc, char **argv)
 {
