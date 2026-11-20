@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 04:33:25 by trmorand          #+#    #+#             */
-/*   Updated: 2026/11/20 15:01:52 by trmorand         ###   ########.fr       */
+/*   Updated: 2026/11/20 17:17:58 by trmorand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ static const char	*run_bench(int mode, t_ps *ps, double disorder)
 		return ("Simple : O(n^2)");
 	else if (mode == 3)
 		return ("Medium : O(n√n)");
-	else if (mode == 1 && (ps->a.size <= 5 || disorder <0.2))
+	else if (mode == 2)
+		return ("Complex : O(n log n)");
+	else if (mode == 1 && (ps->a.size <= 5 || disorder < 0.2))
 		return ("Adaptive : Simple : O(n^2)");
-	else if (mode == 1 && disorder <0.5)
+	else if (mode == 1 && disorder < 0.5)
 		return ("Adaptive : Medium : O(n√n)");
 	else
-		return ("Adaptive : Complex : O(n log n))");
+		return ("Adaptive : Complex : O(n log n)");
 }
 
 static void	put_count(char *name, int n)
