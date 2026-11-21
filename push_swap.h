@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 20:05:10 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/20 19:07:34 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/21 16:14:48 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		pos_of_min(t_stack *s);
 int		pos_of_max(t_stack *s);
 int		cost(int pos, int size);
 void	top_a(t_ps *ps, int pos);
+void	top_b(t_ps *ps, int pos);
 void	sort_three(t_ps *ps);
 void	push_back_max(t_ps *ps);
 void	check_algo(int mode, t_ps *ps, double disorder);
@@ -75,7 +76,5 @@ double	compute_disorder(t_stack *a);
 void	print_bench(t_ps *ps, int mode, double disorder);
 char	**get_args(char **argv, int argc, int first, int *n);
 void	free_args(char **tab);
-
-
 
 #endif

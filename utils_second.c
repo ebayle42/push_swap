@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	top_b(t_ps *ps, int pos)
+void	top_b(t_ps *ps, int pos)
 {
 	if (pos <= ps->b.size / 2)
 	{
